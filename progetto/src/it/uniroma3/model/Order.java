@@ -1,10 +1,13 @@
 package it.uniroma3.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +30,8 @@ public class Order {
 	private Date creationTime;
 	@ManyToOne
 	private Customer customer;
-	@OneToMany
+	
+	@OneToMany //(fetch = FetchType.EAGER , cascade = {CascadeType.REMOVE})
 	@JoinColumn(name = "orders_id")
 	private List<OrderLine> orderLines;
 	
@@ -35,9 +39,14 @@ public class Order {
 	}
 	
 	public Order(Long id, Date creationTime) {
-		this.id = id;
+		this.id = id; //sicuro l'id non va messo!!!
 		this.creationTime = creationTime;
 	}
+	
+	 /*public Order(Date creationtime){
+	    	this.creationtime = creationtime;
+	    	this.orderLines = new ArrayList<OrderLine>();
+	    }*/ 
 	
 	public Long getId() {
 		return id;

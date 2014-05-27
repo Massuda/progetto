@@ -1,5 +1,6 @@
 package it.uniroma3.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -35,6 +36,7 @@ public class Product {
 		this.price = price;
 		this.description = description;
 		this.code = code;
+		//this.providers = new ArrayList<Provider>();
 	}
 
 	//          Getters & Setters        

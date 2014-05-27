@@ -1,13 +1,16 @@
 package it.uniroma3.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -16,6 +19,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+//@NamedQuery(name = "findAllCustomers", query = "SELECT c FROM Customer c") <-- io avevo anche questa riga
+//penso che la riga seguente non vada messa.. in fondo esistono persone con stesso nome e cognome
 @Table(uniqueConstraints = @UniqueConstraint(columnNames={"firstName", "lastName"}))
 public class Customer {
 	
@@ -32,7 +37,8 @@ public class Customer {
 	private Date dateOfBirt;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registrationDate;
-	@OneToOne
+	
+	@OneToOne //(cascade = {CascadeType.ALL})
 	private Address address;
 	@OneToMany(mappedBy = "customer")
 	private List<Order> orders;
@@ -49,6 +55,7 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 		this.dateOfBirt = dateOfBirt;
 		this.registrationDate = registrationDate;
+		//this.orders = new ArrayList<Order>();
 	}
 	
 	public Long getId() {

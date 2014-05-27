@@ -3,6 +3,7 @@ package it.uniroma3.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Provider {
 	private String phoneNumber;
 	private String email;
 	private String vatin;
-	@OneToOne
+	@OneToOne //(cascade = {CascadeType.ALL})
 	private Address address;
 	@ManyToMany
 	private List<Product> products;
