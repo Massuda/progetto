@@ -31,7 +31,7 @@ public class Provider {
 	public Provider() {
 	}
 
-	public Provider(String name, String phoneNumber, String email, String vatin, Address address, List<Product> products) {
+	public Provider(String name, String phoneNumber, String email, String vatin, Address address) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
