@@ -19,9 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-//@NamedQuery(name = "findAllCustomers", query = "SELECT c FROM Customer c") <-- io avevo anche questa riga
-//penso che la riga seguente non vada messa.. in fondo esistono persone con stesso nome e cognome
-@Table(uniqueConstraints = @UniqueConstraint(columnNames={"firstName", "lastName"}))
+//@NamedQuery(name = "findAllCustomers", query = "SELECT c FROM Customer c") 
 public class Customer {
 	
 	@Id
@@ -38,7 +36,7 @@ public class Customer {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registrationDate;
 	
-	@OneToOne //(cascade = {CascadeType.ALL})
+	@OneToOne (cascade = {CascadeType.ALL})
 	private Address address;
 	@OneToMany(mappedBy = "customer")
 	private List<Order> orders;
@@ -46,16 +44,16 @@ public class Customer {
 	public Customer() {
 	}
 
-	public Customer(Long id, String firstName, String lastName, String email,
-			String phoneNumber, Date dateOfBirt, Date registrationDate) {
-		this.id = id;
+	public Customer(String firstName, String lastName, String email,
+			String phoneNumber, Date dateOfBirt, Date registrationDate, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.dateOfBirt = dateOfBirt;
 		this.registrationDate = registrationDate;
-		//this.orders = new ArrayList<Order>();
+		this.address = address;
+		this.orders = new ArrayList<Order>();
 	}
 	
 	public Long getId() {
@@ -118,7 +116,19 @@ public class Customer {
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-	
+		
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName

@@ -36,7 +36,7 @@ public class Product {
 		this.price = price;
 		this.description = description;
 		this.code = code;
-		//this.providers = new ArrayList<Provider>();
+		this.providers = new ArrayList<Provider>();
 	}
 
 	//          Getters & Setters        
@@ -76,24 +76,25 @@ public class Product {
 	public void setCode (String code) {
 		this.code = code;
 	}
-	public boolean equals(Object obj) {
-		Product product = (Product)obj;
-		return this.getCode().equals(product.getCode());
+
+	public List<Provider> getProviders() {
+		return providers;
 	}
 
-	public int hashCode() {
-		return this.code.hashCode();
+	public void setProviders(List<Provider> providers) {
+		this.providers = providers;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder();
-		sb.append("Product"); 
-		sb.append("{id=").append(id); 
-		sb.append(", name='").append(name);
-		sb.append(", price=").append(price);
-		sb.append(", description='").append(description); 
-		sb.append(", code='").append(code); 
-		sb.append("}\n");
-		return sb.toString();
+		return "Product [id=" + id + ", name=" + name + ", price=" + price
+				+ ", description=" + description + ", code=" + code
+				+ ", providers=" + providers + "]";
 	}
+	
+
 }

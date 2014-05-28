@@ -22,9 +22,8 @@ public class Address {
 	public Address() {
 	}
 	
-	public Address(Long id, String street, String city, String state,
+	public Address(String street, String city, String state,
 			String zipcode, String country) {
-		this.id = id;
 		this.street = street;
 		this.city = city;
 		this.state = state;

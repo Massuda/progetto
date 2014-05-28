@@ -23,7 +23,7 @@ public class Provider {
 	private String phoneNumber;
 	private String email;
 	private String vatin;
-	@OneToOne //(cascade = {CascadeType.ALL})
+	@OneToOne (cascade = {CascadeType.ALL})
 	private Address address;
 	@ManyToMany
 	private List<Product> products;
@@ -31,8 +31,7 @@ public class Provider {
 	public Provider() {
 	}
 
-	public Provider(Long id, String name, String phoneNumber, String email, String vatin, Address address, List<Product> products) {
-		this.id = id;
+	public Provider(String name, String phoneNumber, String email, String vatin, Address address, List<Product> products) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
@@ -87,6 +86,14 @@ public class Provider {
 
 	public void setVatin(String vatin) {
 		this.vatin = vatin;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	@Override

@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "orders")
 public class Order {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -30,45 +30,57 @@ public class Order {
 	private Date creationTime;
 	@ManyToOne
 	private Customer customer;
-	
-	@OneToMany //(fetch = FetchType.EAGER , cascade = {CascadeType.REMOVE})
+
+	@OneToMany (fetch = FetchType.EAGER , cascade = {CascadeType.REMOVE})
 	@JoinColumn(name = "orders_id")
 	private List<OrderLine> orderLines;
-	
+
 	public Order() {
 	}
-	
-	public Order(Long id, Date creationTime) {
-		this.id = id; //sicuro l'id non va messo!!!
-		this.creationTime = creationTime;
-	}
-	
-	 /*public Order(Date creationtime){
-	    	this.creationtime = creationtime;
-	    	this.orderLines = new ArrayList<OrderLine>();
-	    }*/ 
-	
+
+	public Order(Date creationtime, Customer customer){
+		this.creationTime = creationtime;
+		this.customer = customer;
+		this.orderLines = new ArrayList<OrderLine>();
+	} 
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Date getCreationTime() {
 		return creationTime;
 	}
-	
+
 	public void setCreationTime(Date creationTime) {
 		this.creationTime = creationTime;
 	}
-	
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", creationTime=" + creationTime + "]";
 	}
-	
-	
+
+
 
 }
