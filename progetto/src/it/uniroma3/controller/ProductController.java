@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
 import it.uniroma3.model.Product;
+import it.uniroma3.model.Provider;
 import it.uniroma3.facade.ProductFacade;
 
 @ManagedBean
@@ -21,6 +22,7 @@ public class ProductController {
 	private String description;
 	private String code;
 	private int quantity;
+	private List<Provider> providers;
 	private Product product;
 	private List<Product> products;
 	
@@ -120,6 +122,23 @@ public class ProductController {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public List<Provider> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(List<Provider> providers) {
+		this.providers = providers;
+	}
+	
 	
 //	public String updateProduct() {
 //		this.product = productFacade.updateProduct(product);
