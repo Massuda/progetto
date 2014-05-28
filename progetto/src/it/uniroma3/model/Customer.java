@@ -128,6 +128,14 @@ public class Customer {
 		return address;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName

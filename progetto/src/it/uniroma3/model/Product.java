@@ -91,6 +91,14 @@ public class Product {
 		this.id = id;
 	}
 
+	public int getQuantyty() {
+		return quantyty;
+	}
+
+	public void setQuantyty(int quantyty) {
+		this.quantyty = quantyty;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price
