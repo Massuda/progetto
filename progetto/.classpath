@@ -97,5 +97,8 @@
 	<classpathentry kind="lib" path="/Users/leonardoceppi/Documents/workspace/siw/Vagrant4SIW-master/lib/xbean-naming-3.12.jar"/>
 	<classpathentry kind="lib" path="/Users/leonardoceppi/Documents/workspace/siw/Vagrant4SIW-master/lib/xbean-reflect-3.12.jar"/>
 	<classpathentry kind="lib" path="/Users/leonardoceppi/Documents/workspace/siw/Vagrant4SIW-master/lib/xmlschema-core-2.0.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
