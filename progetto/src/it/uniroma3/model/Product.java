@@ -25,17 +25,19 @@ public class Product {
 	private String description;
 	@Column(unique = true, nullable = false)
 	private String code;
+	private int quantyty;
 	@ManyToMany(mappedBy = "products")
 	private List<Provider> providers;
 	
 	public Product() {
 	}
 
-	public Product (String name, Float price, String description, String code) {
+	public Product (String name, Float price, String description, String code, int quantity) {
 		this.name = name;
 		this.price = price;
 		this.description = description;
 		this.code = code;
+		this.quantyty = quantity;
 		this.providers = new ArrayList<Provider>();
 	}
 

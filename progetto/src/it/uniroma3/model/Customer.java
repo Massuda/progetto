@@ -10,11 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -31,6 +28,7 @@ public class Customer {
 	private String lastName;
 	private String email;
 	private String phoneNumber;
+	private String password;
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirt;
 	@Temporal(TemporalType.TIMESTAMP)
@@ -45,11 +43,12 @@ public class Customer {
 	}
 
 	public Customer(String firstName, String lastName, String email,
-			String phoneNumber, Date dateOfBirt, Date registrationDate, Address address) {
+			String phoneNumber, String password, Date dateOfBirt, Date registrationDate, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+		this.password = password;
 		this.dateOfBirt = dateOfBirt;
 		this.registrationDate = registrationDate;
 		this.address = address;
