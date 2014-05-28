@@ -21,6 +21,7 @@ public class ProductController {
 	private Float price;
 	private String description;
 	private String code;
+	
 	private int quantity;
 	private List<Provider> providers;
 	private Product product;
