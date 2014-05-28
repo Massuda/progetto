@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
 import it.uniroma3.model.Product;
-import it.uniroma3.model.ProductFacade;
+import it.uniroma3.facade.ProductFacade;
 
 @ManagedBean
 public class ProductController {
@@ -20,11 +20,12 @@ public class ProductController {
 	private Float price;
 	private String description;
 	private String code;
+	private int quantity;
 	private Product product;
 	private List<Product> products;
 	
 	public String createProduct() {
-		this.product = productFacade.createProduct(name, code, price, description);
+		this.product = productFacade.createProduct(name, code, price, description, quantity);
 		return "product";
 	}
 	
