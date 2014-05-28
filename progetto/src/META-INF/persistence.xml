@@ -6,16 +6,22 @@
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<jta-data-source>PostgreSQL Database</jta-data-source>
 		<class>it.uniroma3.model.Product</class>
+		<class>it.uniroma3.model.Customer</class>
+		<class>it.uniroma3.model.Address</class>
+		<class>it.uniroma3.model.Order</class>
+		<class>it.uniroma3.model.Provider</class>
+		<class>it.uniroma3.model.OrderLine</class>
+		<class>it.uniroma3.model.Administrator</class>
 		<properties>
-		<!--	<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver" />
-			<property name="openjpa.ConnectionUserName" value="postgres" />
-			<property name="openjpa.ConnectionPassword" value="siw" />
-			<property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost/products" />
-
-			<property name="openjpa.jdbc.DBDictionary" value="postgres" /> -->
-  			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" /> 
-			<!--<property name="openjpa.Log" value="File=/opt/tomee/logs/openjpa.log, DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE"/>
-  			<property name="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict,JoinForeignKeyDeleteAction=restrict"/> -->
+			<!-- <property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver" 
+				/> <property name="openjpa.ConnectionUserName" value="postgres" /> <property 
+				name="openjpa.ConnectionPassword" value="siw" /> <property name="openjpa.ConnectionURL" 
+				value="jdbc:postgresql://localhost/products" /> <property name="openjpa.jdbc.DBDictionary" 
+				value="postgres" /> -->
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
+			<!--<property name="openjpa.Log" value="File=/opt/tomee/logs/openjpa.log, 
+				DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE"/> <property name="openjpa.jdbc.MappingDefaults" 
+				value="ForeignKeyDeleteAction=restrict,JoinForeignKeyDeleteAction=restrict"/> -->
 		</properties>
 	</persistence-unit>
 </persistence>
