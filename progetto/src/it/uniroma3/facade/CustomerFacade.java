@@ -8,17 +8,18 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
 @Stateless
 public class CustomerFacade {
-	
+
 	@PersistenceContext(unitName = "progetto")
-    private EntityManager entityManager;
+	private EntityManager entityManager;
 
 	public CustomerFacade() {
 	}
-	
+
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
@@ -32,26 +33,43 @@ public class CustomerFacade {
 		entityManager.persist(customer);
 		return customer;
 	}
-	
+
 	public Customer getCustomer(Long id) {
 		Customer customer = entityManager.find(Customer.class, id);
 		return customer;
 	}
-	
+
 	public List<Customer> getAllCustomers() {
-        CriteriaQuery<Customer> cq = entityManager.getCriteriaBuilder().createQuery(Customer.class);
-        cq.select(cq.from(Customer.class));
-        List<Customer> customers = entityManager.createQuery(cq).getResultList();
+		CriteriaQuery<Customer> cq = entityManager.getCriteriaBuilder().createQuery(Customer.class);
+		cq.select(cq.from(Customer.class));
+		List<Customer> customers = entityManager.createQuery(cq).getResultList();
 		return customers;
 	}
 
 	public void updateCustomer(Customer customer) {
 		entityManager.getTransaction();
-        entityManager.merge(customer);
+		entityManager.merge(customer);
 	}
 
 	public void deleteCustomer(Long id) {
 		Customer customer = entityManager.find(Customer.class, id);
-        entityManager.remove(customer);
+		entityManager.remove(customer);
+	}
+
+	public List<Order> getAllOrders(Long id){
+
+		//		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+		//		CriteriaQuery<Customer> cq = cb.createQuery(Customer.class);
+		//		Root<Customer> customer = cq.from(Customer.class);
+		//		Join<Customer, Order> o = customer.join("orders");
+		//		cq.where(cb.equal(customer.get("name"), "Braun")).select(customer);
+		//		
+		//		List<Customer> customers = entityManager.createQuery(cq).getResultList();
+
+		TypedQuery<Order> query = entityManager.createQuery("SELECT o FROM order o WHERE o.customer = :id", Order.class);
+		List<Order> orders = query.getResultList();
+
+
+		return orders;
 	}
 }
