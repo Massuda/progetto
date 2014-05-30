@@ -19,7 +19,7 @@
 	<div>Email:<h:inputText value="#{customerController.email}" required="true" requiredMessage="Email is mandatory" id="email"/> <h:message for="email"/></div>
 	<div>Password:<h:inputText value="#{customerController.password}" required="true" requiredMessage="Password is mandatory" validatorMessage="Password: min 6 characters" id="password"><f:validateLength minimum="6"/></h:inputText><h:message for="password"/></div>
 	<div>Date Of Birth:<h:inputText value="#{customerController.dateOfBirth}" required="true" requiredMessage="Date of birth is mandatory" id="dateOfBirth"> <f:convertDateTime pattern= "dd-mm-yyyy"/> </h:inputText> <h:message for="dateOfBirth"/></div>
-<!--  <div>Registration Date:<h:inputText value="#{customerController.registrationDate}" required="true" requiredMessage="Date of registration is mandatory" converterMessage="Data" id="registrationDate"/> <h:message for="registrationDate"/></div>-->	
+<!-- bla <div>Registration Date:<h:inputText value="#{customerController.registrationDate}" required="true" requiredMessage="Date of registration is mandatory" converterMessage="Data" id="registrationDate"/> <h:message for="registrationDate"/></div>-->	
 	<div><h:commandButton value="Submit" action="#{customerController.createCustomer}"/></div>
 	</h:form>
 	</f:view>
