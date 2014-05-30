@@ -26,7 +26,7 @@ public class AddressFacade {
 		this.entityManager = entityManager;
 	}
 
-	public Address createAddress(String street, String city, String state, String zipcode, String country) {
+	public Address createAddress(String street, String city, String state, int zipcode, String country) {
 		Address address = new Address(street, city, state, zipcode, country);
 		entityManager.persist(address);
 		return address;
