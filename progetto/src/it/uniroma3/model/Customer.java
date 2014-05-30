@@ -31,7 +31,7 @@ public class Customer {
 	private String phoneNumber;
 	private String password;
 	@Temporal(TemporalType.DATE)
-	private Date dateOfBirt;
+	private Date dateOfBirth;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registrationDate;
 	
@@ -44,13 +44,13 @@ public class Customer {
 	}
 
 	public Customer(String firstName, String lastName, String email,
-			String phoneNumber, String password, Date dateOfBirt, Date registrationDate, Address address) {
+			String phoneNumber, String password, Date dateOfBirth, Date registrationDate, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.password = password;
-		this.dateOfBirt = dateOfBirt;
+		this.dateOfBirth = dateOfBirth;
 		this.registrationDate = registrationDate;
 		this.address = address;
 		this.orders = new ArrayList<Order>();
@@ -101,12 +101,12 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public Date getDateOfBirt() {
-		return dateOfBirt;
+	public Date getDateOfBirth() {
+		return dateOfBirth;
 	}
 	
-	public void setDateOfBirt(Date dateOfBirt) {
-		this.dateOfBirt = dateOfBirt;
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 	
 	public Date getRegistrationDate() {
@@ -141,7 +141,7 @@ public class Customer {
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", email=" + email
-				+ ", phoneNumber=" + phoneNumber + ", dateOfBirt=" + dateOfBirt
+				+ ", phoneNumber=" + phoneNumber + ", dateOfBirth=" + dateOfBirth
 				+ ", registrationDate=" + registrationDate + "]";
 	}
 }

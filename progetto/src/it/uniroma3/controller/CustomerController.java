@@ -22,7 +22,7 @@ import javax.faces.bean.ManagedProperty;
 		private String email;
 		private String phoneNumber;
 		private String password;
-		private Date dateOfBirt;
+		private Date dateOfBirth;
 		private Date registrationDate;
 		private Address address;
 		private List<Order> orders;
@@ -30,13 +30,18 @@ import javax.faces.bean.ManagedProperty;
 		private List<Customer> customers;
 		
 		public String createCustomer() {
-			this.customer = customerFacade.createCustomer(firstName, lastName, email, phoneNumber, password, dateOfBirt, registrationDate, address);
-			return "product";
+			this.customer = customerFacade.createCustomer(firstName, lastName, email, phoneNumber, password, dateOfBirth, registrationDate, address);
+			return "customer";
 		}
 		
 		public String listCustomers() {
 			this.customers = customerFacade.getAllCustomers();
 			return "products";
+		}
+		
+		public String listOrders(){
+			this.orders = customerFacade.getAllOrders(this.id);
+			return "orders?????";
 		}
 
 		public String findCustomer() {
@@ -126,12 +131,12 @@ import javax.faces.bean.ManagedProperty;
 			this.password = password;
 		}
 
-		public Date getDateOfBirt() {
-			return dateOfBirt;
+		public Date getDateOfBirth() {
+			return dateOfBirth;
 		}
 
-		public void setDateOfBirt(Date dateOfBirt) {
-			this.dateOfBirt = dateOfBirt;
+		public void setDateOfBirth(Date dateOfBirth) {
+			this.dateOfBirth = dateOfBirth;
 		}
 
 		public Date getRegistrationDate() {
