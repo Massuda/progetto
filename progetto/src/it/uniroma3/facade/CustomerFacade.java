@@ -17,13 +17,13 @@ import javax.persistence.criteria.Root;
 
 @Stateless
 public class CustomerFacade {
-	
+
 	@PersistenceContext(unitName = "progetto")
-    private EntityManager entityManager;
+	private EntityManager entityManager;
 
 	public CustomerFacade() {
 	}
-	
+
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
@@ -37,16 +37,16 @@ public class CustomerFacade {
 		entityManager.persist(customer);
 		return customer;
 	}
-	
+
 	public Customer getCustomer(Long id) {
 		Customer customer = entityManager.find(Customer.class, id);
 		return customer;
 	}
-	
+
 	public List<Customer> getAllCustomers() {
-        CriteriaQuery<Customer> cq = entityManager.getCriteriaBuilder().createQuery(Customer.class);
-        cq.select(cq.from(Customer.class));
-        List<Customer> customers = entityManager.createQuery(cq).getResultList();
+		CriteriaQuery<Customer> cq = entityManager.getCriteriaBuilder().createQuery(Customer.class);
+		cq.select(cq.from(Customer.class));
+		List<Customer> customers = entityManager.createQuery(cq).getResultList();
 		return customers;
 	}
 	
@@ -69,11 +69,12 @@ public class CustomerFacade {
 
 	public void updateCustomer(Customer customer) {
 		entityManager.getTransaction();
-        entityManager.merge(customer);
+		entityManager.merge(customer);
 	}
 
 	public void deleteCustomer(Long id) {
 		Customer customer = entityManager.find(Customer.class, id);
-        entityManager.remove(customer);
+		entityManager.remove(customer);
 	}
+
 }
