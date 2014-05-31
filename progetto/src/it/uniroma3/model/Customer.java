@@ -44,14 +44,14 @@ public class Customer {
 	}
 
 	public Customer(String firstName, String lastName, String email,
-			String phoneNumber, String password, Date dateOfBirth, Date registrationDate, Address address) {
+			String phoneNumber, String password, Date dateOfBirth, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.password = password;
 		this.dateOfBirth = dateOfBirth;
-		this.registrationDate = registrationDate;
+		this.registrationDate = new Date();
 		this.address = address;
 		this.orders = new ArrayList<Order>();
 	}

@@ -48,8 +48,8 @@ public class Order {
 	public Order() {
 	}
 
-	public Order(Date creationtime, Customer customer){
-		this.creationTime = creationtime;
+	public Order(Customer customer){
+		this.creationTime = new Date();
 		this.customer = customer;
 		this.aperto = true;
 		this.orderLines = new ArrayList<OrderLine>();
