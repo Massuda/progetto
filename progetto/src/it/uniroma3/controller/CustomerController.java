@@ -36,23 +36,27 @@ import javax.faces.bean.ManagedProperty;
 		
 		public String listCustomers() {
 			this.customers = customerFacade.getAllCustomers();
-			return "products";
+			return "customers";
 		}
 		
 		public String listOrders(){
-			this.orders = customerFacade.getAllOrders(this.id);
-			return "orders?????";
+			this.orders = customerFacade.getAllMyOrders(this.id);
+			return "customerOrders";
 		}
 
 		public String findCustomer() {
 			this.customer = customerFacade.getCustomer(id);
-			return "product";
+			return "customer";
 		}
 		
-		public String deleteProduct() {
+		public String deleteCustomer() {
 			customerFacade.deleteCustomer(id);
 			this.customers = customerFacade.getAllCustomers();
-			return "products";
+			return "customers";
+		}
+		
+		public String closeOrder(){
+			return "customerOrders";
 		}
 		
 //		public String prepareUpdateProduct() {

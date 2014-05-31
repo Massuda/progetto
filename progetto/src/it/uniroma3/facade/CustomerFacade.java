@@ -45,7 +45,7 @@ public class CustomerFacade {
 		return customers;
 	}
 	
-	public List<Order> getAllOrders(Long id){
+	public List<Order> getAllMyOrders(Long id){
 		
 //		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
 //		CriteriaQuery<Customer> cq = cb.createQuery(Customer.class);
@@ -71,5 +71,6 @@ public class CustomerFacade {
 		Customer customer = entityManager.find(Customer.class, id);
 		entityManager.remove(customer);
 	}
+
 
 }
