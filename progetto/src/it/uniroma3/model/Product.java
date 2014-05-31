@@ -25,7 +25,7 @@ public class Product {
 	private String description;
 	@Column(unique = true, nullable = false)
 	private String code;
-	private int quantyty;
+	private int quantity;
 	@ManyToMany(mappedBy = "products")
 	private List<Provider> providers;
 	
@@ -37,7 +37,7 @@ public class Product {
 		this.price = price;
 		this.description = description;
 		this.code = code;
-		this.quantyty = quantity;
+		this.quantity = quantity;
 		this.providers = new ArrayList<Provider>();
 	}
 
@@ -92,11 +92,11 @@ public class Product {
 	}
 
 	public int getQuantyty() {
-		return quantyty;
+		return quantity;
 	}
 
 	public void setQuantyty(int quantyty) {
-		this.quantyty = quantyty;
+		this.quantity = quantyty;
 	}
 
 	@Override

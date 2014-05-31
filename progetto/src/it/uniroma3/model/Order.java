@@ -28,6 +28,16 @@ public class Order {
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationTime;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date closeTime;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date spedictionTime;
+	
+	private boolean aperto;
+	private boolean chiuso = false;
+	private boolean evaso = false;
+	private boolean sospeso = false;
+	
 	@ManyToOne
 	private Customer customer;
 
@@ -41,8 +51,10 @@ public class Order {
 	public Order(Date creationtime, Customer customer){
 		this.creationTime = creationtime;
 		this.customer = customer;
+		this.aperto = true;
 		this.orderLines = new ArrayList<OrderLine>();
 	} 
+
 
 	public Long getId() {
 		return id;
@@ -58,6 +70,54 @@ public class Order {
 
 	public void setCreationTime(Date creationTime) {
 		this.creationTime = creationTime;
+	}
+
+	public Date getCloseTime() {
+		return closeTime;
+	}
+
+	public void setCloseTime(Date closeTime) {
+		this.closeTime = closeTime;
+	}
+
+	public Date getSpedictionTime() {
+		return spedictionTime;
+	}
+
+	public void setSpedictionTime(Date spedictionTime) {
+		this.spedictionTime = spedictionTime;
+	}
+
+	public boolean isAperto() {
+		return aperto;
+	}
+
+	public void setAperto(boolean aperto) {
+		this.aperto = aperto;
+	}
+
+	public boolean isChiuso() {
+		return chiuso;
+	}
+
+	public void setChiuso(boolean chiuso) {
+		this.chiuso = chiuso;
+	}
+
+	public boolean isEvaso() {
+		return evaso;
+	}
+
+	public void setEvaso(boolean evaso) {
+		this.evaso = evaso;
+	}
+
+	public boolean isSospeso() {
+		return sospeso;
+	}
+
+	public void setSospeso(boolean sospeso) {
+		this.sospeso = sospeso;
 	}
 
 	public Customer getCustomer() {
@@ -78,9 +138,10 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", creationTime=" + creationTime + "]";
+		return "Order [creationTime=" + creationTime + ", closeTime="
+				+ closeTime + ", spedictionTime=" + spedictionTime
+				+ ", aperto=" + aperto + ", chiuso=" + chiuso + ", evaso="
+				+ evaso + ", sospeso=" + sospeso + ", customer=" + customer
+				+ "]";
 	}
-
-
-
 }
