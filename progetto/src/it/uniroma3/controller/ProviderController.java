@@ -10,6 +10,8 @@ import it.uniroma3.model.Address;
 import it.uniroma3.model.Provider;
 import it.uniroma3.facade.ProviderFacade;
 
+@ManagedBean
+public class ProviderController {
 
 	@EJB
 	private ProviderFacade providerFacade;

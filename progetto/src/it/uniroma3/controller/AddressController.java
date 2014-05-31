@@ -8,7 +8,8 @@ import javax.faces.bean.ManagedProperty;
 
 import it.uniroma3.model.Address;
 import it.uniroma3.facade.AddressFacade;
-Bean
+
+@ManagedBean
 public class AddressController {
 
 	@EJB
@@ -18,7 +19,7 @@ public class AddressController {
 	private String street;
 	private String city;
 	private String state;
-	private String zipcode;
+	private int zipcode;
 	private String country;
 	private Address address;
 	private List<Address> addresses;
@@ -105,11 +106,11 @@ public class AddressController {
 		this.addresses = addresses;
 	}
 
-	public String getZipcode() {
+	public int getZipcode() {
 		return zipcode;
 	}
 
-	public void setZipcode(String zipcode) {
+	public void setZipcode(int zipcode) {
 		this.zipcode = zipcode;
 	}
 
