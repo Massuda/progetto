@@ -8,8 +8,7 @@ import javax.faces.bean.ManagedProperty;
 
 import it.uniroma3.model.Address;
 import it.uniroma3.facade.AddressFacade;
-
-@ManagedBean
+Bean
 public class AddressController {
 
 	@EJB
